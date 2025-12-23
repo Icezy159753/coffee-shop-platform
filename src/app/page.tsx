@@ -4,18 +4,23 @@ import Link from 'next/link';
 
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Star, Clock, MapPin } from 'lucide-react';
-import { products } from '@/lib/mock-data';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Navbar } from '@/components/layout/Navbar';
 import { useSettingsStore } from '@/stores/settings-store';
+import { useProductStore } from '@/stores/product-store';
 import { useEffect, useState } from 'react';
 
 export default function Home() {
+    const { products, fetchProducts } = useProductStore();
     const featuredProducts = products.slice(0, 3);
     const { shopName, heroTitle, heroDescription, heroImage } = useSettingsStore();
     const [mounted, setMounted] = useState(false);
-    useEffect(() => setMounted(true), []);
+
+    useEffect(() => {
+        setMounted(true);
+        fetchProducts();
+    }, []);
 
     return (
         <>
