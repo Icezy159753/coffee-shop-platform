@@ -59,7 +59,21 @@ export default function AdminLayout({
 
     return (
         <div className="min-h-screen flex bg-muted/20">
-            {/* Sidebar */}
+            {/* Mobile Header */}
+            <div className="md:hidden fixed top-0 left-0 right-0 z-50 bg-card border-b px-4 py-3 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                    <Store className="h-5 w-5 text-primary" />
+                    <span className="font-heading font-bold">Admin</span>
+                </div>
+                <div className="flex gap-2">
+                    <Link href="/admin"><Button variant="ghost" size="sm"><LayoutDashboard className="h-4 w-4" /></Button></Link>
+                    <Link href="/admin/products"><Button variant="ghost" size="sm"><Coffee className="h-4 w-4" /></Button></Link>
+                    <Link href="/admin/kitchen"><Button variant="ghost" size="sm">🍳</Button></Link>
+                    <Link href="/admin/settings"><Button variant="ghost" size="sm"><Settings className="h-4 w-4" /></Button></Link>
+                </div>
+            </div>
+
+            {/* Sidebar (Desktop) */}
             <aside className="w-64 bg-card border-r hidden md:flex flex-col fixed inset-y-0">
                 <div className="p-6 border-b flex items-center gap-2">
                     <Store className="h-6 w-6 text-primary" />
@@ -105,7 +119,6 @@ export default function AdminLayout({
                         className="w-full gap-2 border-destructive text-destructive hover:bg-destructive/10"
                         onClick={() => {
                             localStorage.removeItem('isAdmin');
-                            // Clear cookie as well 
                             document.cookie = "isAdmin=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;";
                             router.push('/');
                         }}
@@ -117,7 +130,7 @@ export default function AdminLayout({
             </aside>
 
             {/* Main Content */}
-            <main className="flex-1 md:ml-64 p-8">
+            <main className="flex-1 md:ml-64 p-4 md:p-8 pt-16 md:pt-8">
                 {children}
             </main>
         </div>
