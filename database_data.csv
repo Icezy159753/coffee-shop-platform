@@ -1,0 +1,8 @@
+id,categoryId,name,nameTh,price,description,image
+c1,coffee,Hot Latte,ลาเต้ร้อน,65,"Espresso with steamed milk and a thin layer of foam",https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&q=80
+c2,coffee,Iced Americano,อเมริกาโน่เย็น,70,"Espresso shot over ice and water",https://images.unsplash.com/photo-1517701604599-bb29b5c7dd90?auto=format&fit=crop&q=80
+c3,coffee,Caramel Macchiato,คาราเมลมัคคิอาโต้,85,"Espresso with vanilla syrup, steamed milk and caramel drizzle",https://images.unsplash.com/photo-1485808191679-5f8c7c41f7bc?auto=format&fit=crop&q=80
+n1,non-coffee,Iced Matcha Latte,มัทฉะลาเต้เย็น,80,"Premium Japanese matcha green tea with milk",https://images.unsplash.com/photo-1515825838458-f2a94b20105a?auto=format&fit=crop&q=80
+n2,non-coffee,Thai Tea,ชาไทยเย็น,65,"Authentic Thai tea with condensed milk",https://images.unsplash.com/photo-1626801994276-803260be55dc?auto=format&fit=crop&q=80
+b1,bakery,Plain Croissant,ครัวซองต์เนยสด,55,"Buttery, flaky, and golden brown",https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&q=80
+b2,bakery,Blueberry Cheesecake,บลูเบอรี่ชีสเค้ก,120,"Rich cream cheese base topped with blueberry compote",https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&q=80
