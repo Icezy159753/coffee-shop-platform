@@ -3,16 +3,25 @@ import { JWT } from 'google-auth-library';
 import * as fs from 'fs';
 import * as path from 'path';
 
-const creds = require('../../google-sheets-creds.json');
+// Use environment variables for production, fallback to JSON file for local dev
+let creds: any;
+try {
+    creds = require('../../google-sheets-creds.json');
+} catch {
+    creds = null;
+}
 
-const SHEET_ID = creds.GOOGLE_SHEET_ID;
+const SHEET_ID = process.env.GOOGLE_SHEET_ID || creds?.GOOGLE_SHEET_ID || '';
+const SERVICE_ACCOUNT_EMAIL = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL || creds?.GOOGLE_SERVICE_ACCOUNT_EMAIL || '';
+const PRIVATE_KEY = (process.env.GOOGLE_PRIVATE_KEY || creds?.GOOGLE_PRIVATE_KEY || '').replace(/\\n/g, '\n');
+
 const SCOPES = [
     'https://www.googleapis.com/auth/spreadsheets',
 ];
 
 const jwt = new JWT({
-    email: creds.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-    key: creds.GOOGLE_PRIVATE_KEY,
+    email: SERVICE_ACCOUNT_EMAIL,
+    key: PRIVATE_KEY,
     scopes: SCOPES,
 });
 
